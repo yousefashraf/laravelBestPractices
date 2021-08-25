@@ -3,5 +3,5 @@ namespace App\Services;
 
 interface Shape
 {
-    public function measure();
+    public function measure(Request $request);
 }
