@@ -1,7 +1,7 @@
 <?php
 namespace App\Services;
 
-interface Shape
+interface ShapeService
 {
     public function measure($request);
 }

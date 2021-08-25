@@ -1,7 +1,7 @@
 <?php
 namespace App\Services;
 
-class Square implements Shape
+class SquareService implements ShapeService
 {
     public function FunctionName($request)
     {
