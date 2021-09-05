@@ -1,14 +1,12 @@
 <?php
 namespace App\Services;
 
+use App\Services\ShapeService;
+
 class SquareService implements ShapeService
 {
-    public function FunctionName($request)
+    public function measure($num)
     {
-        $method = $request->method;
-
-        $$request->method = $request->length;
-
-        return $$request->method;
+        return $num + $num ;
     }
 }
