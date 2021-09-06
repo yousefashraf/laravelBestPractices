@@ -19,7 +19,7 @@ class ShapeController extends Controller
 
     public function index()
     {
-        return view('shape.shape', $data);
+        return view('shape.shape');
     }
 
     public function measure(Request $request)
