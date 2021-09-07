@@ -3,31 +3,29 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\ShapeMeasureRequest;
 
 class ShapeController extends Controller
 {
-
-    // /**
-    //  * SquareService
-    //  * @var SquareService
-    //  */
-    // private $ShapeService;
-
-    // function __construct(ShapeService $ShapeService) {
-    //     $this->ShapeService = $ShapeService;
-    // }
 
     public function index()
     {
         return view('shape.shape');
     }
 
-    public function measure(Request $request)
+    public function measure(ShapeMeasureRequest $request)
     {
-        // dd($request->shape);
+        // build path to service
         $shape = 'App\\Services\\'. $request->shape;
-        $shapeClass = new $shape;
-        return $shapeClass->measure($request->num);
+
+        // check if service is a shape
+        if(is_a($shape, ShapeServices::class, true)) {
+            $shapeClass = new $shape;
+            return $shapeClass->measure($request->num);
+        }
+
+        // return errors with inputs
+        return redirect()->back()->withErrors()->withInput($request->input());
     }
 
 }
