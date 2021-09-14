@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Services\ShapeService;
 use App\Http\Requests\ShapeMeasureRequest;
 
 class ShapeController extends Controller
@@ -19,9 +20,9 @@ class ShapeController extends Controller
         $shape = 'App\\Services\\'. $request->shape;
 
         // check if service is a shape
-        if(is_a($shape, ShapeServices::class, true)) {
+        if(is_a($shape, ShapeService::class, true)) {
             $shapeClass = new $shape;
-            return $shapeClass->measure($request->num);
+            return $shapeClass->measure($request->length);
         }
 
         // return errors with inputs

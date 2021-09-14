@@ -23,9 +23,9 @@
                 <label for="shape">Shape</label>
                 <select class="custom-select " name="shape" id="shape">
                     <option selected>Select</option>
-                    <option value="Square">Square</option>
-                    <option value="Rectangle">Rectangle</option>
-                    <option value="Circle">Circle</option>
+                    <option value="SquareService">Square</option>
+                    <option value="RectangleService">Rectangle</option>
+                    <option value="CircleService">Circle</option>
                 </select>
             </div>
 

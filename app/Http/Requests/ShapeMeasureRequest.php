@@ -25,7 +25,7 @@ class ShapeMeasureRequest extends FormRequest
     {
         return [
             'shape' => 'required | not_in: Select',
-            'lenght' => 'required',
+            'length' => 'required',
             'width' => 'required'
         ];
     }
