@@ -9,6 +9,11 @@ use App\Http\Requests\ShapeMeasureRequest;
 class ShapeController extends Controller
 {
 
+    public function __construct(ShapeService $shapeClass)
+    {
+        $this->shapeClass = $shapeClass;
+    }
+
     public function index()
     {
         return view('shape.shape');
@@ -24,6 +29,16 @@ class ShapeController extends Controller
             $shapeClass = new $shape;
             return $shapeClass->measure($request->length);
         }
+
+        // return errors with inputs
+        return redirect()->back()->withErrors()->withInput($request->input());
+    }
+
+    public function measureWithIoC()
+    {
+
+        // consider the shape is square by the AppServiceProvider
+        return $this->shapeClass->measure(5);
 
         // return errors with inputs
         return redirect()->back()->withErrors()->withInput($request->input());

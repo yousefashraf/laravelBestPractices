@@ -20,3 +20,4 @@ Route::get('/', function () {
 
 Route::get('shape', [ShapeController::class, 'index']);
 Route::get('measure', [ShapeController::class, 'measure']);
+Route::get('measureWithIoC', [ShapeController::class, 'measureWithIoC']);
